@@ -7,20 +7,23 @@ import Home from '../Pages/Home';
 import ShopAll from '../Pages/ShopAll';
 import AboutUs from '../Pages/AboutUs';
 import TrackOrder from '../Pages/TrackOrder';
+import ProductsList from '../Pages/ProductList';
 
 const Root = () => {
   return (
     <Router>
-        <Routes>
-           <Route path='/' element={<Layout/>} >
-           <Route path='home'element={<Home/>}/>
-           <Route path='shopall'element={<ShopAll/>}/>
-           <Route path='aboutUs'element={<AboutUs/>}/>
-           <Route path='trackOrder'element={<TrackOrder/>}/>
-           </Route>
-           
-        </Routes>
-      
+      <Routes>
+        <Route path='/' element={<Layout />} >
+          <Route path='home' element={<Home />} />
+          <Route path='shopall' element={<ShopAll />} />
+          <Route path='aboutUs' element={<AboutUs />} />
+          <Route path='trackOrder' element={<TrackOrder />} />
+          <Route path='products' element={<ProductsList />} />
+
+        </Route>
+
+      </Routes>
+
     </Router>
   )
 }
