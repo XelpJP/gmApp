@@ -33,17 +33,16 @@ const Home = () => {
       <Box>
         <Grid templateColumns='repeat(4, 1fr)' gap={6}>
           {allitems.map((item) => (
-            <Card maxW='sm'>
+            <Card key={item.id} maxW='sm'>
               <CardBody>
                 <Image
                   src={item.url}
                   alt='Green double couch with wooden legs'
-                  height={400}
-                  width={500}
-                  objectFit={"fill"}
+
+                  objectFit='contain' // Ensures the aspect ratio is maintained
                 />
                 <Box>
-                  <Text as={"b"}>${item.price}</Text>
+                  <Text as={"b"}>&#x20B9;{item.price}</Text>
                   <Text fontSize={"10px"}>500grams</Text>
                 </Box>
               </CardBody>
@@ -60,6 +59,7 @@ const Home = () => {
             </Card>
           ))}
         </Grid>
+
       </Box>
     </Box>
   )
