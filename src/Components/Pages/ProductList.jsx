@@ -11,6 +11,9 @@ const ProductsList = () => {
     return <p>No products found or invalid data format.</p>;
   }
 
+  console.log(data, "bmnbbjbmmnbmm");
+
+
   return (
     <div>
       <h2>Products</h2>
