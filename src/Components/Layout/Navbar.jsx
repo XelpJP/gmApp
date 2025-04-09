@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { FaRegUserCircle } from "react-icons/fa";
-import { MdOutlineShoppingBag } from "react-icons/md";
 import { keyframes } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.jpeg"
+import { headerData } from '../utils/data';
+import { FaPowerOff, FaShoppingCart } from "react-icons/fa";
+
+
 
 const Navbar = () => {
-  const headerData = [{ id: 1, title: "Home" }, { id: 2, title: "Shop All" }, { id: 1, title: "About us" }, { id: 1, title: "Track Your Order" }];
-  const Icons = [{ id: 1, icon: <FaRegUserCircle size={25} /> }, { id: 2, icon: <MdOutlineShoppingBag size={25} /> }]
 
   const messages = [
     'FREE Shipping On Orders above 500/-',
@@ -44,6 +44,9 @@ const Navbar = () => {
     if (title === 'Track Your Order') {
       navigate('trackOrder')
     }
+    if (title === 'Logout') {
+      navigate('login')
+    }
   };
 
   useEffect(() => {
@@ -59,17 +62,30 @@ const Navbar = () => {
       </div>
       <div className=''>
         <ul className='flex justify-center align-middle gap-10  mt-2'>
-          {
-            headerData && headerData?.map((item, index) => (
-              <li className='cursor-pointer' key={index} onClick={() => handleNavigation(item.title)}>
-                {
-                  item.title
-                }
+          {headerData.map((item, index) => {
+            let IconComponent = null;
+            if (item.iconType === 'cart') IconComponent = <FaShoppingCart size={22} />;
+            if (item.iconType === 'user') IconComponent = <FaPowerOff size={22} />;
+
+            return (
+              <li
+                key={index}
+                className='cursor-pointer flex items-center gap-1 hover:text-blue-600 relative group'
+                onClick={() => handleNavigation(item.title)}
+              >
+                {IconComponent ? IconComponent : <span>{item.title}</span>}
+
+                {IconComponent && (
+                  <span className="absolute bottom-[-25px] left-1/2 -translate-x-1/2 bg-black text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                    {item.title}
+                  </span>
+                )}
               </li>
-            )
-            )
-          }
+            );
+          })}
+
         </ul>
+
       </div>
     </nav>
   )

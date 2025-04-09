@@ -1,3 +1,4 @@
+
 export const picklesData = [
   { id: 1, name: 'Avakaya Mango', url: 'https://vellankifoods.com/cdn/shop/products/andhra_avakaya_pickle_mango.jpg?v=1679897008', price: 260, rating: 4.5, likes: 120, dislikes: 10, selectOne: 1 },
   { id: 2, name: 'Lime Pickle', url: 'https://i0.wp.com/veenapatwardhan.com/pat-a-cake/wp-content/uploads/2024/05/Sweet-and-Spicy-Lime-Pickle.png?resize=500%2C400&ssl=1', price: 250, rating: 4.0, likes: 98, dislikes: 5, selectOne: 0 },
@@ -10,3 +11,14 @@ export const picklesData = [
   { id: 9, name: 'Special Andhra Mix', url: 'https://tenaliruchulu.com/cdn/shop/files/Screenshot2024-06-15at4.35.42PM.png?v=1718449568', price: 370, rating: 4.3, likes: 100, dislikes: 6 },
   { id: 10, name: 'Fish Pickle', url: 'https://i0.wp.com/southindia-stastic-assests.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/10/09182433/Godavari_fish_pickle1.jpeg?fit=540%2C500&ssl=1', price: 320, rating: 4.6, likes: 125, dislikes: 5, selectOne: 0 }
 ]
+
+
+export const headerData = [
+  { id: 1, title: "Home" },
+  { id: 2, title: "Shop All" },
+  { id: 3, title: "About us" },
+  { id: 4, title: "Track Your Order" },
+  { id: 5, title: "Cart", iconType: 'cart' },
+  { id: 6, title: "Logout", iconType: 'user' },
+
+];

@@ -8,6 +8,8 @@ import AboutUs from '../Pages/AboutUs';
 import TrackOrder from '../Pages/TrackOrder';
 import ErrorBoundaryWrapper from '../Pages/ErrorBoundaryWrapper';
 import NotFound from '../Pages/NotFound';
+import SignInPage from '../Pages/SignInPage';
+import AuthRoute from './AuthRoute';
 
 const Root = () => {
   return (
@@ -19,8 +21,12 @@ const Root = () => {
             <Route path='shopall' element={<ShopAll />} />
             <Route path='aboutUs' element={<AboutUs />} />
             <Route path='trackOrder' element={<TrackOrder />} />
-            <Route path="*" element={<NotFound />} />
 
+
+          </Route>
+          <Route element={<AuthRoute />}>
+            <Route path='login' element={<SignInPage />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
 
         </Routes>
