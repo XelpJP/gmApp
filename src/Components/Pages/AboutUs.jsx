@@ -1,11 +1,10 @@
-import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const AboutUs = () => {
   return (
-    <Box>
-      <Text>About us component</Text>
-    </Box>
+    <div className='mt-[6rem]'>
+      <p className='text-center '>About Us</p>
+    </div>
   )
 }
 

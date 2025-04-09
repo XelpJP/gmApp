@@ -1,11 +1,10 @@
-import { Box, Text } from '@chakra-ui/react'
 import React from 'react'
 
 const TrackOrder = () => {
   return (
-    <Box>
-      <Text>Track your order</Text>
-    </Box>
+    <div className='mt-[6rem]'>
+      <p className='text-center '>Track your order</p>
+    </div>
   )
 }
 

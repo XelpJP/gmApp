@@ -1,4 +1,3 @@
-import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Navbar from '../Layout/Navbar';
@@ -7,20 +6,27 @@ import Home from '../Pages/Home';
 import ShopAll from '../Pages/ShopAll';
 import AboutUs from '../Pages/AboutUs';
 import TrackOrder from '../Pages/TrackOrder';
+import ErrorBoundaryWrapper from '../Pages/ErrorBoundaryWrapper';
+import NotFound from '../Pages/NotFound';
 
 const Root = () => {
   return (
     <Router>
+      <ErrorBoundaryWrapper>
         <Routes>
-           <Route path='/' element={<Layout/>} >
-           <Route path='home'element={<Home/>}/>
-           <Route path='shopall'element={<ShopAll/>}/>
-           <Route path='aboutUs'element={<AboutUs/>}/>
-           <Route path='trackOrder'element={<TrackOrder/>}/>
-           </Route>
-           
+          <Route path='/' element={<Layout />} >
+            <Route path='home' element={<Home />} />
+            <Route path='shopall' element={<ShopAll />} />
+            <Route path='aboutUs' element={<AboutUs />} />
+            <Route path='trackOrder' element={<TrackOrder />} />
+            <Route path="*" element={<NotFound />} />
+
+          </Route>
+
         </Routes>
-      
+      </ErrorBoundaryWrapper>
+
+
     </Router>
   )
 }
