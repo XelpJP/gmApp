@@ -5,12 +5,16 @@ import Button from '../UI/Button'
 import { GoStarFill, GoStar } from "react-icons/go";
 import { FaThumbsUp, FaThumbsDown } from "react-icons/fa";
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
+import Banner from './Banner';
 
 const Home = () => {
   return (
-    <div className='mt-[3rem] p-10 '>
-      <p className='text-center text-2xl font-bold'>Pickles</p>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4'>
+    <div className='mt-[3rem] '>
+      {/* <p className='text-center text-2xl font-bold'>Pickles</p> */}
+      <div className=''>
+        <Banner />
+      </div>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 px-10'>
         {
           picklesData && picklesData?.map((item, index) => (
             <Card key={item.id}>

@@ -10,6 +10,7 @@ import ErrorBoundaryWrapper from '../Pages/ErrorBoundaryWrapper';
 import NotFound from '../Pages/NotFound';
 import SignInPage from '../Pages/SignInPage';
 import AuthRoute from './AuthRoute';
+import SignUp from '../Pages/SignUp';
 
 const Root = () => {
   return (
@@ -26,6 +27,8 @@ const Root = () => {
           </Route>
           <Route element={<AuthRoute />}>
             <Route path='login' element={<SignInPage />} />
+            <Route path='register' element={<SignUp />} />
+
             <Route path="*" element={<NotFound />} />
           </Route>
 
