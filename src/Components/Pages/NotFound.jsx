@@ -1,8 +1,12 @@
 import React from 'react'
+import not from "../../assets/not.jpg"
 
 const NotFound = () => {
   return (
-    <div>NotFound</div>
+    <div>
+      <img src={not} className='w-full h-[100vh] object-fill' />
+    </div>
+
   )
 }
 

@@ -11,6 +11,7 @@ import NotFound from '../Pages/NotFound';
 import SignInPage from '../Pages/SignInPage';
 import AuthRoute from './AuthRoute';
 import SignUp from '../Pages/SignUp';
+import DescPickles from '../Pages/DescPickles';
 
 const Root = () => {
   return (
@@ -22,6 +23,7 @@ const Root = () => {
             <Route path='shopall' element={<ShopAll />} />
             <Route path='aboutUs' element={<AboutUs />} />
             <Route path='trackOrder' element={<TrackOrder />} />
+            <Route path='desc' element={<DescPickles />} />
 
 
           </Route>
