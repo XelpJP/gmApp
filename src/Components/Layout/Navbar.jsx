@@ -3,30 +3,12 @@ import { keyframes } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.jpeg"
 import { headerData } from '../utils/data';
-import { FaPowerOff, FaShoppingCart } from "react-icons/fa";
+import { FaPowerOff, FaShoppingCart, FaShippingFast, FaHome } from "react-icons/fa";
+import { IoMdSearch } from "react-icons/io";
 
 
 
 const Navbar = () => {
-
-  const messages = [
-    'FREE Shipping On Orders above 500/-',
-    'FREE Shipping On Orders above 500/-',
-    'FREE Shipping On Orders above 500/-',
-    'FREE Shipping On Orders above 500/-',
-    'FREE Shipping On Orders above 500/-',
-    'FREE Shipping On Orders above 500/-',
-  ];
-  const slideHorizontalKeyframes = keyframes`
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-`;
-
-  const slideHorizontalAnimation = `${slideHorizontalKeyframes} 35s linear infinite`;
   const navigate = useNavigate();
   const [name, setName] = useState('Home')
 
@@ -35,13 +17,7 @@ const Navbar = () => {
     if (title === 'Home') {
       navigate('home')
     }
-    if (title === 'Shop All') {
-      navigate('shopall')
-    }
-    if (title === 'About us') {
-      navigate('aboutUs')
-    }
-    if (title === 'Track Your Order') {
+    if (title === 'TrackYourOrder') {
       navigate('trackOrder')
     }
     if (title === 'Logout') {
@@ -62,10 +38,21 @@ const Navbar = () => {
       </div>
       <div className=''>
         <ul className='flex justify-center align-middle gap-10  mt-2'>
+          <div className="relative w-full max-w-sm">
+            <input
+              className="w-full p-1 px-4  border-[1.3px] border-gray-200 rounded-2xl focus:outline-none"
+              placeholder="Search Here....."
+            />
+            <IoMdSearch className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl cursor-pointer" />
+          </div>
+
           {headerData.map((item, index) => {
             let IconComponent = null;
+            if (item.iconType === 'home') IconComponent = <FaHome size={22} />;
             if (item.iconType === 'cart') IconComponent = <FaShoppingCart size={22} />;
             if (item.iconType === 'user') IconComponent = <FaPowerOff size={22} />;
+            if (item.iconType === 'trackOrder') IconComponent = <FaShippingFast size={22} />;
+
 
             return (
               <li

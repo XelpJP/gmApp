@@ -14,10 +14,8 @@ export const picklesData = [
 
 
 export const headerData = [
-  { id: 1, title: "Home" },
-  { id: 2, title: "Shop All" },
-  { id: 3, title: "About us" },
-  { id: 4, title: "Track Your Order" },
+  { id: 1, title: "Home", iconType: "home" },
+  { id: 4, title: "TrackYourOrder", iconType: "trackOrder" },
   { id: 5, title: "Cart", iconType: 'cart' },
   { id: 6, title: "Logout", iconType: 'user' },
 
