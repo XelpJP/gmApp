@@ -15,6 +15,11 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [found, setFound] = useState(true);
   const [result, setResult] = useState(picklesData);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+
+
+
 
   const handleRedirect = () => {
     navigate('/desc');
@@ -41,7 +46,11 @@ const Home = () => {
     <div className='mt-[3rem] example'>
       <div>
         <Banner />
+
       </div>
+      <>
+
+      </>
 
       <div className='flex justify-center mt-3 gap-2'>
         <input
@@ -87,26 +96,23 @@ const Home = () => {
                         ? <GoStarFill key={i} className='text-yellow-400' />
                         : <GoStar key={i} className='text-gray-300' />
                     )}
-                    <span className='text-sm text-gray-600 ml-1'>({item.rating})</span>
+                    {/* <span className='text-sm text-gray-600 ml-1'>({item.rating})</span> */}
+                    <span>    {item.selectOne ? (
+                      <span className='flex items-center gap-1'><IoHeartOutline className='text-red-500' /></span>
+                    ) : (
+                      <span className='flex items-center gap-1'><IoHeartSharp className='text-red-500' /></span>
+                    )}</span>
                   </div>
                   <div className='flex gap-4 mt-2 text-sm text-gray-700 justify-between'>
-                    <div className='flex justify-between gap-3'>
-                      <p><FaThumbsUp className='text-green-500' /> {item.likes}</p>
-                      <p><FaThumbsDown className='text-red-500' /> {item.dislikes}</p>
-                    </div>
-                    <div>
-                      {item.selectOne ? (
-                        <span className='flex items-center gap-1'><IoHeartOutline className='text-red-500' /></span>
-                      ) : (
-                        <span className='flex items-center gap-1'><IoHeartSharp className='text-red-500' /></span>
-                      )}
-                    </div>
                   </div>
 
                   <div className='flex justify-between mt-3'>
-                    <FaEye color='#002D62' size="25" />
+                    <FaEye color='#002D62' size="35" onClick={() => {
+                      setSelectedItem(item);
+                      setShowModal(true);
+                    }} />
 
-                    <BiSolidCartAdd size="25" color='green' />
+                    <BiSolidCartAdd size="35" color='green' />
                   </div>
                 </div>
               </>
@@ -114,6 +120,29 @@ const Home = () => {
           ))}
         </div>
       )}
+      {showModal && selectedItem && (<>
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-6 rounded-xl shadow-xl max-w-md w-full relative">
+              <button
+                className="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl"
+                onClick={() => setShowModal(false)}
+              >
+                &times;
+              </button>
+              <img src={selectedItem.url} alt={selectedItem.name} className="w-full h-[200px] object-contain mb-4 rounded-lg" />
+              <h2 className="text-xl font-bold mb-2">{selectedItem.name}</h2>
+              <p className="text-sm text-gray-600 mb-2">Price: ₹{selectedItem.price} (500g)</p>
+              <p className="text-sm text-gray-500">Rating: {selectedItem.rating}</p>
+              <div className='flex gap-10 mt-2'>
+                <p><FaThumbsUp className='text-green-500' /> {selectedItem.likes}</p>
+                <p><FaThumbsDown className='text-red-500' /> {selectedItem.dislikes}</p>
+              </div>
+            </div>
+          </div>
+        </>
+      </>)}
+
     </div>
   );
 };

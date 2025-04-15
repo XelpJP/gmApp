@@ -11,7 +11,7 @@ const TrackOrder = () => {
     navigate('/home')
   }
   return (
-    <div className='mt-[6rem] p-10 bg-white mx-5 rounded-2xl shadow-lg'>
+    <div className='mt-[6rem] p-10 bg-white mx-5 rounded-2xl shadow-lg mb-[1rem]'>
       <p className='text-center font-bold text-xl underline mb-3'>Track your order</p>
       <hr className='border-[0.02px] border-gray-400' />
       <p className='p-1'>My Orders / Tracking</p>
