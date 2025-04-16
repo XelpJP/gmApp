@@ -96,7 +96,6 @@ const Home = () => {
                         ? <GoStarFill key={i} className='text-yellow-400' />
                         : <GoStar key={i} className='text-gray-300' />
                     )}
-                    {/* <span className='text-sm text-gray-600 ml-1'>({item.rating})</span> */}
                     <span>    {item.selectOne ? (
                       <span className='flex items-center gap-1'><IoHeartOutline className='text-red-500' /></span>
                     ) : (
