@@ -5,19 +5,20 @@ import { RecoilRoot } from 'recoil';
 import App from './App.jsx';
 import "./index.css"
 import { LoadingProvider } from './Components/context/LoadingProvider.jsx';
+import { ThemeProvider } from './Components/context/ThemeContext.jsx';
 
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  <>
     <RecoilRoot>
       <QueryClientProvider client={queryClient}>
-        <LoadingProvider>
-
-          <App />
-        </LoadingProvider>
-
+        <ThemeProvider>
+          <LoadingProvider>
+            <App />
+          </LoadingProvider>
+        </ThemeProvider>
       </QueryClientProvider>
-    </RecoilRoot>
-  </StrictMode>
+    </RecoilRoot >
+  </>
 );

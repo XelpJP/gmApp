@@ -63,13 +63,13 @@ const Home = () => {
           !found ? (
             <Button
               label={"Refresh"}
-              className={"bg-red-600 rounded-lg px-2 py-1 text-white shadow-lg hover:bg-red-400 hover:text-black"}
+              className={"bg-red-600 text-white rounded-lg px-2 py-1  shadow-lg hover:bg-black hover:text-white"}
               onClick={() => window.location.reload()}
             />
           ) : (
             <Button
               label={"Search"}
-              className={"bg-[#002D62] rounded-lg px-2 py-1 text-white shadow-lg hover:bg-red-300 hover:text-black"}
+              className={"[#002D62] rounded-lg px-2 py-1 shadow-lg hover:red-300 hover:"}
               onClick={handleSearch}
             />
           )
@@ -78,7 +78,7 @@ const Home = () => {
       {!found ? (
         <div className='mb-5'><ItemNotFound /></div>
       ) : (
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 px-10 mb-5'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-4 px-10 mb-5 '>
           {result?.map((item) => (
             <Card key={item.id}>
               <>
@@ -122,24 +122,37 @@ const Home = () => {
       {showModal && selectedItem && (<>
         <>
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded-xl shadow-xl max-w-md w-full relative">
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-xl max-w-md w-full relative text-black dark:text-white">
               <button
-                className="absolute top-2 right-3 text-gray-500 hover:text-red-500 text-xl"
+                className="absolute top-2 right-3 text-gray-500 dark:text-gray-300 hover:text-red-500 text-xl"
                 onClick={() => setShowModal(false)}
               >
                 &times;
               </button>
-              <img src={selectedItem.url} alt={selectedItem.name} className="w-full h-[200px] object-contain mb-4 rounded-lg" />
+              <img
+                src={selectedItem.url}
+                alt={selectedItem.name}
+                className="w-full h-[200px] object-contain mb-4 rounded-lg"
+              />
               <h2 className="text-xl font-bold mb-2">{selectedItem.name}</h2>
-              <p className="text-sm text-gray-600 mb-2">Price: ₹{selectedItem.price} (500g)</p>
-              <p className="text-sm text-gray-500">Rating: {selectedItem.rating}</p>
-              <div className='flex gap-10 mt-2'>
-                <p><FaThumbsUp className='text-green-500' /> {selectedItem.likes}</p>
-                <p><FaThumbsDown className='text-red-500' /> {selectedItem.dislikes}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                Price: ₹{selectedItem.price} (500g)
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">
+                Rating: {selectedItem.rating}
+              </p>
+              <div className="flex gap-10 mt-2">
+                <p className="flex items-center gap-1">
+                  <FaThumbsUp className="text-green-500" /> {selectedItem.likes}
+                </p>
+                <p className="flex items-center gap-1">
+                  <FaThumbsDown className="text-red-500" /> {selectedItem.dislikes}
+                </p>
               </div>
             </div>
           </div>
         </>
+
       </>)}
 
     </div>

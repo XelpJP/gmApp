@@ -11,7 +11,7 @@ const TrackOrder = () => {
     navigate('/home')
   }
   return (
-    <div className='mt-[6rem] p-10 bg-white mx-5 rounded-2xl shadow-lg mb-[1rem]'>
+    <div className='mt-[6rem] p-10  mx-5 rounded-2xl shadow-lg mb-[1rem]'>
       <p className='text-center font-bold text-xl underline mb-3'>Track your order</p>
       <hr className='border-[0.02px] border-gray-400' />
       <p className='p-1'>My Orders / Tracking</p>
@@ -43,7 +43,7 @@ const TrackOrder = () => {
       <hr className='border-[0.02px] border-gray-400 mt-2' />
       <Button
         label={"< Back to orders "}
-        className={"bg-[#002D62] rounded-lg px-2 py-1 text-white shadow-lg hover:bg-red-300 hover:text-black mt-10"}
+        className={"[#002D62] rounded-lg px-2 py-1  shadow-lg hover:red-300 hover: mt-10"}
         onClick={handleSearch}
       />
 

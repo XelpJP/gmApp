@@ -4,7 +4,7 @@ import { FaSquareInstagram, FaSquareXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className=' p-10 bg-[rgba(0,0,0,0.3)] mb-10 '>
+    <div className=' p-10 bg-[rgba(0,0,0,0.3)] mb-10 shadow-xl'>
       <main className=' p-10 flex justify-between '>
         <div>
           <h1 className='text-4xl tracking-[.10em]'>Pickle</h1>

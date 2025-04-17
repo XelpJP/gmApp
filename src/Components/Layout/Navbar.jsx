@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { keyframes } from '@emotion/react';
 import { useNavigate } from 'react-router-dom';
 import logo from "../../assets/logo.jpeg"
 import { headerData } from '../utils/data';
 import { FaPowerOff, FaShoppingCart, FaShippingFast, FaHome } from "react-icons/fa";
 import { IoMdSearch } from "react-icons/io";
+import { FiSun, FiMoon } from 'react-icons/fi'
+import { ThemeContext } from '../context/ThemeContext';
 
 
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('Home')
+  const { theme, toggleTheme } = useContext(ThemeContext)
 
   const handleNavigation = (title) => {
     setName(title)
@@ -25,14 +28,10 @@ const Navbar = () => {
     }
   };
 
-  useEffect(() => {
-    if (name == "Home") {
-      navigate('home')
-    }
-  }, [])
+
 
   return (
-    <nav className='fixed top-0 left-0 w-full z-50 bg-white flex justify-between px-10 py-5 shadow-lg '>
+    <nav className='fixed top-0 left-0 w-full z-50 white flex justify-between px-10 py-5 shadow-lg bg-white dark:bg-gray-900 text-black dark:text-white'>
       <div className=''>
         <img src={logo} className='w-10 h-10 object-contain' />
       </div>
@@ -63,13 +62,23 @@ const Navbar = () => {
                 {IconComponent ? IconComponent : <span>{item.title}</span>}
 
                 {IconComponent && (
-                  <span className="absolute bottom-[-25px] left-1/2 -translate-x-1/2 bg-black text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <span className="absolute bottom-[-25px] left-1/2 -translate-x-1/2 black  text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
                     {item.title}
                   </span>
                 )}
               </li>
             );
           })}
+          <>
+            <li
+              className="cursor-pointer flex items-center gap-1 hover:text-blue-600"
+              onClick={toggleTheme}
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? <FiSun size={22} /> : <FiMoon size={22} />}
+            </li>
+
+          </>
 
         </ul>
 
